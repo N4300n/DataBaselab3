@@ -66,34 +66,51 @@ ADD COLUMN date_of_brith DATE;
 
 <img width="860" height="134" alt="image" src="https://github.com/user-attachments/assets/90834da4-879a-4453-952b-64c68ff746d9" />
 
+### Удаление колонки (DROP COLUMN)
+```sql
+ALTER TABLE students
+DROP COLUMN faculty;
+```
+<img width="324" height="363" alt="image" src="https://github.com/user-attachments/assets/0af557fb-ed56-4b51-bb49-84ebbc01a171" />
+
+
+<img width="632" height="114" alt="image" src="https://github.com/user-attachments/assets/72685357-1edb-495e-9ade-4d816c10490d" />
+
+### Добавление ограничения(ADD CONSTRAINT..UNIQE..)
+```sql
+ALTER TABLE students
+ADD CONSTRAINT unique_student_email UNIQUE (email)
+```
+<img width="498" height="347" alt="image" src="https://github.com/user-attachments/assets/9f25fda6-5dee-4609-b156-d4115fe5c66f" />
+
+<img width="631" height="111" alt="image" src="https://github.com/user-attachments/assets/7c5e26a0-1b5d-4ddf-a979-d697cfdf54e1" />
+
 ### Изменение типа данных колонки (ALTER COLUMN ... TYPE) : 
 
 Примечание: В примере ниже мы изменили тип VARCHAR на TEXT (строка без лимита длины).
 
 ```sql
-ALTER TABLE car
-ALTER COLUMN brand TYPE TEXT;
+ALTER TABLE studets
+ALTER COLUMN first_name TYPE TEXT;
 ```
-<img width="324" height="363" alt="image" src="https://github.com/user-attachments/assets/0af557fb-ed56-4b51-bb49-84ebbc01a171" />
+<img width="359" height="343" alt="image" src="https://github.com/user-attachments/assets/949c56ef-56fb-49bf-9812-95f39ce1f340" />
+
 
 <img width="695" height="112" alt="image" src="https://github.com/user-attachments/assets/fcdd49cc-90de-4bf8-bd93-79c0cefbf34b" />
 
 ### Переименование колонки (RENAME COLUMN) :
 
 ```sql
-ALTER TABLE car
-RENAME COLUMN license_plate TO registration_number;
+ALTER TABLE students
+RENAME COLUMN email TO email_address;
+
+ALTER TABLE students
+RANAME TO university_students;
 ```
 
-<img width="359" height="343" alt="image" src="https://github.com/user-attachments/assets/949c56ef-56fb-49bf-9812-95f39ce1f340" />
-
-<img width="632" height="114" alt="image" src="https://github.com/user-attachments/assets/72685357-1edb-495e-9ade-4d816c10490d" />
-
-<img width="498" height="347" alt="image" src="https://github.com/user-attachments/assets/9f25fda6-5dee-4609-b156-d4115fe5c66f" />
-
-<img width="631" height="111" alt="image" src="https://github.com/user-attachments/assets/7c5e26a0-1b5d-4ddf-a979-d697cfdf54e1" />
-
 <img width="428" height="348" alt="image" src="https://github.com/user-attachments/assets/472a1e64-9c87-41b2-907f-2151ff24be08" />
+
+<img width="643" height="111" alt="image" src="https://github.com/user-attachments/assets/ae5e1c65-9751-4fe2-8a0e-f7a60d00960f" />
 
 <img width="349" height="406" alt="image" src="https://github.com/user-attachments/assets/4f1322c5-5a2d-446c-8d07-3f4f43d6f5dc" />
 
