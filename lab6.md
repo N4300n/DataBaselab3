@@ -110,9 +110,10 @@ RANAME TO university_students;
 
 <img width="428" height="348" alt="image" src="https://github.com/user-attachments/assets/472a1e64-9c87-41b2-907f-2151ff24be08" />
 
+
+
 <img width="643" height="111" alt="image" src="https://github.com/user-attachments/assets/ae5e1c65-9751-4fe2-8a0e-f7a60d00960f" />
 
-<img width="349" height="406" alt="image" src="https://github.com/user-attachments/assets/4f1322c5-5a2d-446c-8d07-3f4f43d6f5dc" />
 
 <img width="650" height="619" alt="image" src="https://github.com/user-attachments/assets/09008ed6-da91-4606-84e5-c632b89c071e" />
 
