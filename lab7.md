@@ -19,6 +19,7 @@
 
 ## SERIAL and BIGSERIAL: 
 <img width="557" height="363" alt="image" src="https://github.com/user-attachments/assets/70887698-1a9b-48f2-a05e-17bbeb4ad605" />
+
 ## IDENTITY Columns:
 <img width="653" height="486" alt="image" src="https://github.com/user-attachments/assets/0fa80ce8-ea59-4fb0-b414-56c789ba720c" />
 
