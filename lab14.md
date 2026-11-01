@@ -1,4 +1,4 @@
-<img width="521" height="323" alt="image" src="https://github.com/user-attachments/assets/628958b4-1800-426c-9214-030271691ca0" /># Joining Tables
+# Joining Tables
  
 ### A. INNER JOIN
  
