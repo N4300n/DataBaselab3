@@ -12,6 +12,8 @@ CREATE TABLE students_1nf_bad (
     phone_numbers TEXT -- Нарушение: некорректно хранить список номеров списком
 );
 ```
+<img width="725" height="370" alt="image" src="https://github.com/user-attachments/assets/5f5e83df-bc60-41d9-834b-6e72d050df85" />
+
  
 Решение (1NF): атомарные значения, вынос номеров в отдельную таблицу:
  
@@ -29,6 +31,9 @@ CREATE TABLE student_phones (
     FOREIGN KEY (student_id) REFERENCES students_1nf_good(student_id)
 );
 ```
+
+<img width="638" height="345" alt="image" src="https://github.com/user-attachments/assets/cb8a4dda-d2dc-497d-8056-3487eb714565" />
+
  
 ### Вторая нормальная форма (2NF)
  
@@ -43,6 +48,8 @@ CREATE TABLE enrollments_2nf_bad (
     PRIMARY KEY (student_id, course_id)
 );
 ```
+<img width="773" height="365" alt="image" src="https://github.com/user-attachments/assets/30b45420-37da-4d25-aeb9-7c86f728c6be" />
+
  
 Решение (2NF): разделение на отдельную таблицу курсов и таблицу связей:
  
@@ -62,6 +69,8 @@ CREATE TABLE enrollments_2nf_good (
     FOREIGN KEY (course_id) REFERENCES courses_2nf_good(course_id)
 );
 ```
+<img width="656" height="307" alt="image" src="https://github.com/user-attachments/assets/2f190206-95b4-4bd5-91fc-5eeb6eb5994f" />
+
  
 ### Третья нормальная форма (3NF)
  
@@ -75,6 +84,8 @@ CREATE TABLE students_3nf_bad (
     department_name VARCHAR(100) -- Нарушение: зависит от department_id, а не от student_id
 );
 ```
+<img width="768" height="339" alt="image" src="https://github.com/user-attachments/assets/0e574f77-10cc-4060-8134-51ae4e983a50" />
+
  
 Решение (3NF): вынос информации о факультете в отдельную таблицу:
  
@@ -92,6 +103,8 @@ CREATE TABLE students_3nf_good (
     FOREIGN KEY (department_id) REFERENCES departments_3nf_good(department_id)
 );
 ```
+<img width="714" height="309" alt="image" src="https://github.com/user-attachments/assets/828cbd1a-7a50-4c20-95db-baa8d3e1652f" />
+
  
 ## 2. Система управления библиотекой (Library Management System)
  
@@ -105,7 +118,8 @@ CREATE TABLE authors (
     birth_date DATE
 );
 ```
- 
+<img width="389" height="252" alt="image" src="https://github.com/user-attachments/assets/aaddfd28-cf34-4149-87e3-2e17b25257c1" />
+
 Книги:
  
 ```sql
@@ -117,6 +131,8 @@ CREATE TABLE books (
     available_copies INTEGER DEFAULT 1
 );
 ```
+<img width="391" height="341" alt="image" src="https://github.com/user-attachments/assets/8b6944c4-49a5-4b6a-b27f-5741bdd21e44" />
+
  
 Связывающая таблица для связи «Многие-ко-многим» (Книги <-> Авторы):
  
@@ -129,6 +145,8 @@ CREATE TABLE book_authors (
     FOREIGN KEY (author_id) REFERENCES authors(author_id) ON DELETE CASCADE
 );
 ```
+<img width="735" height="301" alt="image" src="https://github.com/user-attachments/assets/22ba5695-cd0b-4678-9f5e-e2eafc902fef" />
+
  
 Читатели:
  
@@ -142,7 +160,8 @@ CREATE TABLE members (
     membership_date DATE DEFAULT CURRENT_DATE
 );
 ```
- 
+<img width="445" height="332" alt="image" src="https://github.com/user-attachments/assets/6dc90c07-9ac9-411d-94e3-a166de8c01d3" />
+
 Выдача книг (Loans):
  
 ```sql
@@ -158,6 +177,8 @@ CREATE TABLE loans (
     FOREIGN KEY (book_id) REFERENCES books(book_id)
 );
 ```
+<img width="555" height="289" alt="image" src="https://github.com/user-attachments/assets/8bee07b7-d4ce-418a-a2d8-9f229caa1d4c" />
+
  
 ## 3. Примеры вставки данных и сложных запросов
  
@@ -182,7 +203,8 @@ INSERT INTO members (first_name, last_name, email, phone) VALUES
 INSERT INTO loans (member_id, book_id, due_date) VALUES 
 (1, 1, CURRENT_DATE + INTERVAL '14 days');
 ```
- 
+<img width="693" height="370" alt="image" src="https://github.com/user-attachments/assets/cb135e5d-2cb9-45da-90b2-2b9f4dcf44c5" />
+
 Запрос для получения выданных книг с информацией о читателе и авторе:
  
 ```sql
@@ -198,4 +220,5 @@ JOIN books b ON l.book_id = b.book_id
 JOIN book_authors ba ON b.book_id = ba.book_id
 JOIN authors a ON ba.author_id = a.author_id;
 ```
- 
+<img width="593" height="167" alt="image" src="https://github.com/user-attachments/assets/e8e4eb74-e586-4f88-924f-cb888cbd2253" />
+
