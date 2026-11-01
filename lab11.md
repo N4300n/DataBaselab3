@@ -75,7 +75,16 @@ WHERE first_name = 'Gulzat' AND last_name = 'Sultanova';
 ``` 
 <img width="337" height="99" alt="image" src="https://github.com/user-attachments/assets/7c3997db-d899-4b24-bae5-65a2018b34c3" />
 
+---
 <img width="549" height="183" alt="image" src="https://github.com/user-attachments/assets/48dfc4a9-5a55-4300-8910-df21fef0b6a3" />
+
+---
+
 <img width="389" height="124" alt="image" src="https://github.com/user-attachments/assets/f0ee82e3-8527-46fd-8cb2-0186e921d609" />
+
+---
 <img width="534" height="169" alt="image" src="https://github.com/user-attachments/assets/afd14bfc-2d30-4e5f-a4fb-4f4d9932e5dc" />
+
+---
+
 <img width="526" height="135" alt="image" src="https://github.com/user-attachments/assets/ad370cc8-9793-4a66-9f9c-263d3b68eaa3" />
