@@ -12,6 +12,9 @@ CREATE TABLE departments (
 );
 ```
 
+<img width="396" height="318" alt="image" src="https://github.com/user-attachments/assets/fc5349cb-6a66-496b-b27e-7d3991e2e1ff" />
+
+
 ### Способ 1: Встроенное объявление (Inline)
 
 ```sql
@@ -22,6 +25,9 @@ CREATE TABLE employees_inline (
     dept_id INTEGER REFERENCES departments(dept_id)
 );
 ```
+
+<img width="515" height="304" alt="image" src="https://github.com/user-attachments/assets/30ee082b-f4d7-4159-819c-814426b1f50d" />
+
 
 ### Способ 2: На уровне таблицы (Table-level)
 
@@ -35,6 +41,8 @@ CREATE TABLE employees_table_level (
 );
 ```
 
+<img width="553" height="329" alt="image" src="https://github.com/user-attachments/assets/e86a6f8d-f5c0-490d-b37d-4c82083f96ae" />
+
 ### Способ 3: Именованное ограничение (Named constraint)
 
 ```sql
@@ -46,6 +54,9 @@ CREATE TABLE employees_named (
     CONSTRAINT fk_employee_department FOREIGN KEY (dept_id) REFERENCES departments(dept_id)
 );
 ```
+
+<img width="798" height="314" alt="image" src="https://github.com/user-attachments/assets/a0c92e76-648a-4b0f-a15e-56b545d33f75" />
+
 
 ### Способ 4: Добавление внешнего ключа через ALTER TABLE
 
@@ -62,6 +73,9 @@ ADD CONSTRAINT fk_employee_department_alter
 FOREIGN KEY (dept_id) REFERENCES departments(dept_id);
 ```
 
+<img width="571" height="383" alt="image" src="https://github.com/user-attachments/assets/bea2dd6a-b3fc-4687-b43f-a515cdf19a51" />
+
+
 ## 2. Связь «Один к одному» (One-to-One)
 
 ```sql
@@ -72,6 +86,9 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 ```
+
+<img width="481" height="322" alt="image" src="https://github.com/user-attachments/assets/13173fbc-78ac-4298-ac4d-bf8f7d557a4c" />
+
 
 Ограничение `UNIQUE` на `user_id` гарантирует связь «Один к одному»:
 
@@ -86,6 +103,8 @@ CREATE TABLE user_profiles (
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 ```
+<img width="668" height="308" alt="image" src="https://github.com/user-attachments/assets/a05254df-31ac-4982-8711-c9a17b8b51d6" />
+
 
 ## 3. Связь «Один ко многим» (One-to-Many) и CASCADE варианты
 
@@ -98,6 +117,8 @@ CREATE TABLE blog_posts (
     published_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 ```
+<img width="536" height="301" alt="image" src="https://github.com/user-attachments/assets/1898b9d6-645c-404b-af71-da8e7f4d0a13" />
+
 
 Связь 1-ко-многим с каскадным удалением и обновлением:
 
@@ -113,6 +134,8 @@ CREATE TABLE comments (
         ON UPDATE CASCADE
 );
 ```
+<img width="549" height="301" alt="image" src="https://github.com/user-attachments/assets/f9ed7dec-db28-43bc-9f6a-2f5123f5e629" />
+
 
 ## 4. Связь «Многие ко многим» (Many-to-Many)
 
@@ -134,6 +157,9 @@ CREATE TABLE courses (
 );
 ```
 
+<img width="502" height="397" alt="image" src="https://github.com/user-attachments/assets/2b31050f-f327-4b60-aef3-1164585217de" />
+
+
 Промежуточная таблица связей (Junction Table):
 
 ```sql
@@ -148,6 +174,9 @@ CREATE TABLE student_enrollments (
     UNIQUE(student_id, course_id)
 );
 ```
+
+<img width="726" height="308" alt="image" src="https://github.com/user-attachments/assets/cefd437a-b4ab-4ee2-ad42-2b04019ee028" />
+
 
 ## 5. Примеры вставки данных и запросов (JOIN)
 
@@ -170,6 +199,13 @@ INSERT INTO courses (course_code, course_name, credits, instructor) VALUES
 ('MATH101', 'Calculus I', 4, 'Dr. Wilson');
 ```
 
+<img width="712" height="323" alt="image" src="https://github.com/user-attachments/assets/681366f9-a836-4b43-8f38-813665009dbd" />
+<img width="463" height="191" alt="image" src="https://github.com/user-attachments/assets/992c283e-f1df-431d-aabb-2ab2047fcf29" />
+<img width="721" height="186" alt="image" src="https://github.com/user-attachments/assets/3cebdc8b-fe8c-47a3-aa9e-b930e6b1079f" />
+<img width="697" height="202" alt="image" src="https://github.com/user-attachments/assets/55cfcf03-44dc-4155-b77a-e3f0efafc9b5" />
+
+
+
 Запись на курсы (Many-to-Many):
 
 ```sql
@@ -181,6 +217,9 @@ INSERT INTO student_enrollments (student_id, course_id, grade) VALUES
 (3, 2, 'A'),   -- Carol -> CS201
 (3, 3, 'A-');  -- Carol -> MATH101
 ```
+<img width="642" height="220" alt="image" src="https://github.com/user-attachments/assets/d3f1dac4-da2d-4e13-a388-dd2db7a7e973" />
+<img width="553" height="265" alt="image" src="https://github.com/user-attachments/assets/6421f2c7-dc48-4c5d-91fc-265f67a3c1d1" />
+
 
 Запрос с JOIN для отображения связанных данных:
 
@@ -196,3 +235,5 @@ JOIN student_enrollments se ON s.student_id = se.student_id
 JOIN courses c ON se.course_id = c.course_id
 ORDER BY s.last_name, c.course_code;
 ```
+<img width="703" height="274" alt="image" src="https://github.com/user-attachments/assets/cb5e741e-a178-453f-bc98-0ff6ae328bab" />
+
